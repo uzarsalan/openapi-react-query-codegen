@@ -280,6 +280,16 @@ function createQueryHook({
                       ts.factory.createLiteralTypeNode(
                         ts.factory.createStringLiteral("queryFn"),
                       ),
+                      ...(isInfiniteQuery
+                        ? [
+                            ts.factory.createLiteralTypeNode(
+                              ts.factory.createStringLiteral("initialPageParam"),
+                            ),
+                            ts.factory.createLiteralTypeNode(
+                              ts.factory.createStringLiteral("getNextPageParam"),
+                            ),
+                          ]
+                        : []),
                     ]),
                   ],
                 ),
